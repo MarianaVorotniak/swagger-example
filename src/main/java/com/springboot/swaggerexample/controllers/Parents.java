@@ -20,17 +20,17 @@ public class Parents {
 
     @GetMapping
     public List<Parent> getParents() {
-        addParent(new Parent("parent1", "1", "parent1@gmail.com", "Parent1", "ParentParent1"));
-        addParent(new Parent("parent2", "2", "parent2@gmail.com", "Parent2", "ParentParent2"));
+        addParent(new Parent(1, "parent1", "1", "parent1@gmail.com", "Parent1", "ParentParent1"));
+        addParent(new Parent(2, "parent2", "2", "parent2@gmail.com", "Parent2", "ParentParent2"));
         return listOfParents;
     }
 
-    @GetMapping("/{login}")
-    public Parent getParent(@PathVariable("login") final String login)
+    @GetMapping("/{id}")
+    public Parent getParent(@PathVariable("login") final String id)
     {
         for (Parent p : listOfParents)
         {
-            if (p.getLogin().equals(login))
+            if (p.getId() == Integer.valueOf(id))
                 return p;
         }
         return null;
@@ -42,8 +42,8 @@ public class Parents {
         return null;
     }
 
-    @PutMapping("/{login}")
-    public Parent putParent(@PathVariable("login") final String login)
+    @PutMapping("/{id}")
+    public Parent putParent(@PathVariable("id") final String id)
     {
         return null;
     }

@@ -7,6 +7,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 public class Parent {
 
+    @ApiModelProperty(notes = "id of the parent")
+    private int id;
+
     @ApiModelProperty(notes = "login of the parent")
     private String login;
 
@@ -22,8 +25,9 @@ public class Parent {
     @ApiModelProperty(notes = "surname of the parent")
     private String lastName;
 
-    public Parent(String login, String password, String email, String firstName, String lastName)
+    public Parent(int id, String login, String password, String email, String firstName, String lastName)
     {
+        this.id = id;
         this.login = login;
         this.password = password;
         this.email = email;
@@ -69,5 +73,13 @@ public class Parent {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
